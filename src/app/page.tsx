@@ -25,10 +25,13 @@ export default function Home() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const moonpayUrl = new URL('https://buy.moonpay.com');
+    
+    // Always set your default public API key
+    moonpayUrl.searchParams.set('apiKey', 'pk_test_SyBZ6KI7LwJuoPzSZ2378rfKyvajqC');
+
 
     // List of allowed MoonPay parameters
     const allowedParams = [
-      'apiKey',
       'baseCurrencyAmount',
       'baseCurrencyCode',
       'currencyCode',
