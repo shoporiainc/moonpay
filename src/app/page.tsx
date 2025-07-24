@@ -31,6 +31,7 @@ export default function Home() {
       'apiKey',
       'baseCurrencyAmount',
       'baseCurrencyCode',
+      'currencyCode',
       'lockAmount',
       'walletAddress',
       'redirectURL',
