@@ -1,18 +1,18 @@
-// 'use client';
+'use client';
 
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 
-// const MoonPayWidget = dynamic(
-//   () => import('./components/MoonPayWidget').then(mod => mod.default),
-//   {
-//     ssr: false,
-//     loading: () => <div>Loading...</div>,
-//   }
-// );
+const MoonPayWidget = dynamic(
+  () => import('./components/MoonPayWidget').then(mod => mod.default),
+  {
+    ssr: false,
+    loading: () => <div>Loading...</div>,
+  }
+);
 
-// export default function Home() {
-//   return <MoonPayWidget />;
-// }
+export default function Home() {
+  return <MoonPayWidget />;
+}
 
 
 // 'use client';
@@ -68,43 +68,43 @@
 // }
 
 
-'use client';
+// 'use client';
 
-import {
-  MoonPayProvider,
-  OnRampWidget,
-} from '@moonpay/moonpay-react';
-import { useSearchParams } from 'next/navigation';
+// import {
+//   MoonPayProvider,
+//   OnRampWidget,
+// } from '@moonpay/moonpay-react';
+// import { useSearchParams } from 'next/navigation';
 
-export default function Home() {
-  const searchParams = useSearchParams();
+// export default function Home() {
+//   const searchParams = useSearchParams();
 
-  const baseCurrencyAmount = searchParams.get('baseCurrencyAmount') || '555';
-  const baseCurrencyCode = searchParams.get('baseCurrencyCode') || 'usd';
-  const lockAmount = searchParams.get('lockAmount') || 'true';
-  const walletAddress =
-    searchParams.get('walletAddress') ||
-    '0x6B28042E31dB951062624B03cDD5607c526758cC';
-  const currencyCode = searchParams.get('currencyCode') || 'eth';
+//   const baseCurrencyAmount = searchParams.get('baseCurrencyAmount') || '555';
+//   const baseCurrencyCode = searchParams.get('baseCurrencyCode') || 'usd';
+//   const lockAmount = searchParams.get('lockAmount') || 'true';
+//   const walletAddress =
+//     searchParams.get('walletAddress') ||
+//     '0x6B28042E31dB951062624B03cDD5607c526758cC';
+//   const currencyCode = searchParams.get('currencyCode') || 'eth';
 
-  return (
-    <MoonPayProvider
-      publishableApiKey="pk_test_SyBZ6KI7LwJuoPzSZ2378rfKyvajqC" // Replace with your test key
-      environment="sandbox" // Use "production" for live mode
-    >
-      <div style={{ width: '100%', height: '100vh' }}>
-        <OnRampWidget
-          variant="embedded"
-          params={{
-            baseCurrencyAmount,
-            baseCurrencyCode,
-            lockAmount,
-            walletAddress,
-            currencyCode,
-          }}
-          style={{ width: '100%', height: '100%' }}
-        />
-      </div>
-    </MoonPayProvider>
-  );
-}
+//   return (
+//     <MoonPayProvider
+//       publishableApiKey="pk_test_SyBZ6KI7LwJuoPzSZ2378rfKyvajqC" // Replace with your test key
+//       environment="sandbox" // Use "production" for live mode
+//     >
+//       <div style={{ width: '100%', height: '100vh' }}>
+//         <OnRampWidget
+//           variant="embedded"
+//           params={{
+//             baseCurrencyAmount,
+//             baseCurrencyCode,
+//             lockAmount,
+//             walletAddress,
+//             currencyCode,
+//           }}
+//           style={{ width: '100%', height: '100%' }}
+//         />
+//       </div>
+//     </MoonPayProvider>
+//   );
+// }
